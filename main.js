@@ -138,32 +138,6 @@
     });
   }
 
-  /* ---------------------------------------------------------------------
-     Rotador de roles en el hero (fade cruzado, sobrio)
-     --------------------------------------------------------------------- */
-  function initRoleRotator() {
-    var track = $("[data-role-track]");
-    if (!track) return;
-    var roles = $$(".hero-role", track);
-    if (roles.length < 2) return;
-
-    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var i = 0;
-
-    // is-enhanced + is-active se añaden en el mismo tick: el primer rol pasa
-    // de estático a absoluto sin salto visual (misma opacidad antes/después).
-    track.classList.add("is-enhanced");
-    roles[0].classList.add("is-active");
-
-    if (reduced) return; // evita el loop continuo; el primer rol queda visible
-
-    setInterval(function () {
-      var next = (i + 1) % roles.length;
-      roles[i].classList.remove("is-active");
-      roles[next].classList.add("is-active");
-      i = next;
-    }, 2800);
-  }
 
   /* ---------------------------------------------------------------------
      Año automático en el footer

@@ -163,7 +163,7 @@ ul, ol { list-style: none; padding: 0; }
 .btn-lg { padding: 1.05rem 2rem; font-size: 1.05rem; }
 
 /* Pills / tags */
-.contact-pill {
+-pill {
   display: inline-flex; align-items: center; gap: 0.55rem;
   padding: 0.65rem 1.15rem;
   border-radius: 999px;
@@ -381,23 +381,22 @@ a.contact-pill:hover { border-color: var(--accent); color: var(--text); transfor
   margin-bottom: 1.1rem;
 }
 
-.hero-roles { position: relative; height: 1.6em; overflow: hidden; margin-bottom: 1.4rem; }
-.hero-roles-track { display: block; position: relative; height: 100%; }
+.hero-roles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+}
 .hero-role {
-  display: block;
-  position: absolute;
-  inset: 0;
   color: var(--accent);
   font-size: 1.05rem;
   font-weight: 500;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity .6s var(--ease-soft), transform .6s var(--ease-soft);
 }
-/* Sin JS: el primer rol se muestra estático y visible (contenido nunca desaparece) */
-.hero-role:first-child { position: static; opacity: 1; transform: none; transition: none; }
-.hero-roles-track.is-enhanced .hero-role:first-child { position: absolute; transition: opacity .6s var(--ease-soft), transform .6s var(--ease-soft); }
-.hero-role.is-active { opacity: 1; transform: translateY(0); }
+.hero-role-sep {
+  color: var(--text-faint);
+  font-size: 0.9rem;
+}
 
 .hero-tagline {
   max-width: 46ch;
